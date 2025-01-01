@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Desktop/ESP_Turn-Table"
+		},
+		{
+			"name": "ESP32_Turn_Table",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
