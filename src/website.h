@@ -1,12 +1,15 @@
 // HTML text page
 const char HTMLTEXT[] = R"(<!DOCTYPE html>
-<html lang="de">
+<html lang="en">
  <head>
+ <title>ESP32 Turn Table</title>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <style>
  body {
- background-color: #a9a9a9;
+ font-family: Arial, sans-serif;
+ color:rgb(255, 255, 255);
+ background-color: #454444;
  display: flex;
  flex-flow: column;
  align-items: center;
@@ -32,6 +35,8 @@ const char HTMLTEXT[] = R"(<!DOCTYPE html>
  }
  .flex-item {
  border: 1px solid;
+ border-color:rgb(104, 104, 104);
+ width: 120%;
  margin: .2em;
  padding: .1em;
  text-align: center;
@@ -39,6 +44,7 @@ const char HTMLTEXT[] = R"(<!DOCTYPE html>
  }
  input {
  font-size: 1em;
+ width: 49%;
  background-color: #adff2f;
  }
 
@@ -60,31 +66,31 @@ const char HTMLTEXT[] = R"(<!DOCTYPE html>
  </script>
  </head>
  <body>
- <h2>Move stepper motor</h2>
- <h3>ESP32 Dev Module</h3>
+ <h2>ESP32 Turn Table</h2>
+ <h4>BFG</h3>
  <form action="/stepper">
  <div class="flex-container">
  <p class="flex-item">
  <label>
- <input style="width:6em; background-color:white" max="50000" min="0" name="speed" type="number" value="%ld" onchange="updateStep(this) "/ > steps/sec
+ <input style="width:6em; background-color:white" max="50000" min="0" name="speed" type="number" value="%ld" onchange="updateStep(this) "/ > 
  </label>
- <input name="setSpeed" type="submit" value="Set speed">
+ <input name="setSpeed" type="submit" value="Set Speed Steps/Sec">
  </p>
  <p class="flex-item">
  <label>
- <input style="width:6em; background-color:white" max="160000" min="0" name="ramp" type="number" value="%ld" onchange="updateStep(this) " / > <label>Steps</label>
+ <input style="width:6em; background-color:white" max="160000" min="0" name="ramp" type="number" value="%ld" onchange="updateStep(this) " / > <label></label>
  </label>
  <input name="setRamp" type="submit" value="Set ramp">
  </p>
  </div>
  <div class="flex-container">
  <p class="flex-item">
- <input name="left" type="submit" value="1 turn to the left">
- <input name="contl" type="submit" value="Duration left">
+ <input name="left" type="submit" value="1 Rotation Left">
+ <input name="contl" type="submit" value="Spin Left">
  </p>
  <p class="flex-item">
- <input name="right" type="submit" value="1 turn to the right">
- <input name="contr" type="submit" value="Duration right">
+ <input name="right" type="submit" value="1 Rotation Right">
+ <input name="contr" type="submit" value="Spin Right ">
  </p>
  </div>
  <div class="flex-container">
